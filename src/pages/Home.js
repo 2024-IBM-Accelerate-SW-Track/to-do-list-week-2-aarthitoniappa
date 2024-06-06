@@ -1,11 +1,18 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import Todos from '../component/todos'; 
+import AddTodo from '../component/AddTodo'; 
+import './Home.css'; 
+
+
 
 class Home extends Component {
   // A default state of this component with an empty list of todos.
   constructor() {
     super();
     this.state = {
+      todos: [], 
       // create your empty list here call it todos.
+      showImage: false 
     };
   }
   // the addTodo function simply creates a new array that includes the user submitted todo item and then
@@ -22,13 +29,35 @@ class Home extends Component {
     // Updates the local state with the new array.
     this.setState({
       todos: new_list,
+      showImage: true
+      
+    });
+
+    setTimeout(() => {
+      this.setState({ showImage: false });
+    }, 2000);
+  };
+
+  deleteTodo = (id) => {
+    const new_list = this.state.todos.filter(todo => todo.id !== id);
+    this.setState({
+      todos: new_list
     });
   };
+
   render() {
     return (
       <div className="Home">
-        <p> Replace this</p>
-        <h1>Todo's </h1>
+         <h1>Todo List</h1>
+         <AddTodo addTodo={this.addTodo} />
+         <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
+         {this.state.showImage && (
+          <img
+            src= "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2FmZjVyenR1eDhmcjIxc2Z3OWphcm1hODZpNWJyeHpnY2YzdmQ1NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26BRQSNJRFAV5fsGI/giphy.gif"
+            alt="Frustrated GIF"
+            style={{ marginTop: '5%', width: '45%', maxWidth: '300x' }}
+          />
+        )}
       </div>
     );
   }
