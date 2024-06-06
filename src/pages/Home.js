@@ -55,7 +55,7 @@ class Home extends Component {
           <img
             src= "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2FmZjVyenR1eDhmcjIxc2Z3OWphcm1hODZpNWJyeHpnY2YzdmQ1NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26BRQSNJRFAV5fsGI/giphy.gif"
             alt="Frustrated GIF"
-            style={{ marginTop: '5%', width: '45%', maxWidth: '300x' }}
+            style={{ marginTop: '15', width: '45%', maxWidth: '300x' }}
           />
         )}
       </div>
