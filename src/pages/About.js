@@ -40,6 +40,7 @@ const AboutWithCarousel = () => {
           <div>
             <Button variant="contained" color="primary" onClick={handlePrevious} style={{ marginRight: '10px' }}>
               Get to Know Me
+              data-testid="new-item-button"
             </Button>
           </div>
         </div>
@@ -52,6 +53,7 @@ const AboutWithCarousel = () => {
           </div>
           <Button variant="contained" color="primary" onClick={handleButtonClick}>
             Free Chipotle Gift Card
+            data-testid="new-item-button"
           </Button>
           <img
             src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjd0dGNoMzdoMGZjMGF6dGo3bHNmcjhpYjZqNW82N3F1Z3BwdXN1dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lXiRm5H49zYmHr3i0/giphy.gif"

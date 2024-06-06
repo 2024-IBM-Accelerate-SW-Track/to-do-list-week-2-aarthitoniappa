@@ -45,6 +45,7 @@ class AddTodo extends Component {
           onChange={this.handleChange}
           value={this.state.content}
           style={{ flexGrow: 1 }}
+          data-testid="new-item-textfield"
 
         />
         <Button
@@ -52,6 +53,7 @@ class AddTodo extends Component {
           onClick={this.handleSubmit}
           variant="contained"
           color="primary"
+          data-testid="new-item-button"
         >
           Add
         </Button>
