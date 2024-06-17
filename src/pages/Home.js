@@ -3,21 +3,27 @@ import Todos from '../component/todos';
 import AddTodo from '../component/AddTodo'; 
 import './Home.css'; 
 
-
-
 class Home extends Component {
   // A default state of this component with an empty list of todos.
   constructor() {
     super();
     this.state = {
       todos: [], 
-      // create your empty list here call it todos.
       showImage: false 
     };
   }
+
   // the addTodo function simply creates a new array that includes the user submitted todo item and then
   // updates the state with the new list.
   addTodo = (todo) => {
+    // Check if the task already exists in the todo list
+    const exists = this.state.todos.find(t => t.content === todo.content);
+    
+    if (exists) {
+      // Task already exists, do nothing and return
+      return;
+    }
+
     // In React, keys or ids in a list help identify which items have changed, been added or removed. Keys
     // should not share duplicate values.
     // To avoid having dup values, we use the Math.random() function to generate a random value for a todo id.
@@ -30,7 +36,6 @@ class Home extends Component {
     this.setState({
       todos: new_list,
       showImage: true
-      
     });
 
     setTimeout(() => {
@@ -53,9 +58,9 @@ class Home extends Component {
          <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
          {this.state.showImage && (
           <img
-            src= "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2FmZjVyenR1eDhmcjIxc2Z3OWphcm1hODZpNWJyeHpnY2YzdmQ1NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26BRQSNJRFAV5fsGI/giphy.gif"
+            src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2FmZjVyenR1eDhmcjIxc2Z3OWphcm1hODZpNWJyeHpnY2YzdmQ1NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26BRQSNJRFAV5fsGI/giphy.gif"
             alt="Frustrated GIF"
-            style={{ marginTop: '15', width: '45%', maxWidth: '300x' }}
+            style={{ marginTop: '15px', width: '45%', maxWidth: '300px' }}
           />
         )}
       </div>
