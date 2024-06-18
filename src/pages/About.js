@@ -1,34 +1,3 @@
-import React, { Component } from "react";
-import "./About.css";
-import profile_pic from "../assets/profile_pic.jpg";
-
-export default class About extends Component {
-  render() {
-    return (
-      <div>
-        {/* <p>Design your About me page </p> */}
-        <div class="split left">
-          <div className="centered">
-            <img
-              className="profile_image"
-              src={profile_pic}
-              alt="Profile Pic"
-            ></img>
-          </div>
-        </div>
-        <div className="split right">
-          <div className="centered">
-            <div className="name_title">Your Name</div>
-            <div className="brief_description">
-              Tell us about yourself in a few sentences. Tell us your interests
-              and say a fun fact about yourself.
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import './About.css';
@@ -40,7 +9,7 @@ import profile4 from '../assets/profile4.jpg';
 
 const images = [profile, profile1, profile2, profile3, profile4];
 
-const AboutWithCarousel = () => {
+const About = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -54,7 +23,7 @@ const AboutWithCarousel = () => {
   };
 
   const handleButtonClick = () => {
-    window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; 
+    window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
   };
 
   return (
@@ -69,9 +38,14 @@ const AboutWithCarousel = () => {
             style={{ cursor: 'pointer' }} // Add cursor pointer to indicate clickable image
           />
           <div>
-            <Button variant="contained" color="primary" onClick={handlePrevious} style={{ marginRight: '10px' }}>
-              Get to Know Me
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handlePrevious}
+              style={{ marginRight: '10px' }}
               data-testid="new-item-button"
+            >
+              Get to Know Me
             </Button>
           </div>
         </div>
@@ -82,9 +56,13 @@ const AboutWithCarousel = () => {
           <div className="brief_description">
             I love pranks!
           </div>
-          <Button variant="contained" color="primary" onClick={handleButtonClick}>
-            Free Chipotle Gift Card
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleButtonClick}
             data-testid="new-item-button"
+          >
+            Free Chipotle Gift Card
           </Button>
           <img
             src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjd0dGNoMzdoMGZjMGF6dGo3bHNmcjhpYjZqNW82N3F1Z3BwdXN1dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lXiRm5H49zYmHr3i0/giphy.gif"
@@ -101,4 +79,4 @@ const AboutWithCarousel = () => {
   );
 };
 
-export default AboutWithCarousel;
+export default About;
